@@ -86,4 +86,3 @@ class Application:
             notes = data["notes"]
         )
 
-    
