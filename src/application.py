@@ -33,7 +33,7 @@ class Application:
             notes: str | None = None
     ):
         # input validation
-        if isinstance(application_id, bool) or not isinstance(application_id, int) or application_id <= 0:
+        if not isinstance(application_id, int) or application_id <= 0:
             raise ValueError("Application ID must be a positive integer")
         if not isinstance(company, str) or not company.strip():
             raise ValueError("Company must be a non-blank string")
@@ -45,16 +45,22 @@ class Application:
             raise TypeError("Status must be an instance of ApplicationStatus Enum")
         if work_mode is not None and not isinstance(work_mode, WorkMode):
             raise TypeError("Workmode must be an instance of WorkMode Enum or None")
+        if location is not None and not isinstance(location, str):
+            raise TypeError("Location must be a string or None")
+        if url is not None and not isinstance(url, str):
+            raise TypeError("URL must be a string or None")
+        if notes is not None and not isinstance(notes, str):
+            raise TypeError("Notes must be a string or None")
         
         self.application_id = application_id
         self.company = company.strip()
         self.position = position.strip()
-        self.location = location
+        self.location = location.strip() if location and location.strip() else None
         self.work_mode = work_mode
         self.date_applied = date_applied
         self.status = status
-        self.url = url
-        self.notes = notes
+        self.url = url.strip() if url and url.strip() else None
+        self.notes = notes.strip() if notes and notes.strip() else None
 
     def to_dict(self) -> dict:
         return {
