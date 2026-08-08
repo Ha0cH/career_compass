@@ -99,6 +99,16 @@ def test_find_application_by_id():
     if os.path.exists("test_applications.json"):
         os.remove("test_applications.json")
 
+def test_find_nonexistent_application_by_id():
+    service = ApplicationService(data_file_path="test_applications.json")
+    
+    found_app = service.find_application_by_id(999)  # Assuming 999 is a non-existent ID
+    assert found_app is None
+
+    # Clean up the test data file after the test
+    if os.path.exists("test_applications.json"):
+        os.remove("test_applications.json")
+
 def test_delete_application():
     service = ApplicationService(data_file_path="test_applications.json")
     
