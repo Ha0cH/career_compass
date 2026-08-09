@@ -75,7 +75,7 @@ Each layer has a single responsibility:
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/career_compass.git
+git clone https://github.com/Ha0cH/career_compass
 cd career_compass
 ```
 
