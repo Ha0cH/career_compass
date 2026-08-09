@@ -1,5 +1,5 @@
-from src.application import Application, ApplicationStatus, WorkMode
-from src.storage import save_applications, load_applications, DATA_FILE_PATH
+from .application import Application, ApplicationStatus, WorkMode
+from .storage import save_applications, load_applications, DATA_FILE_PATH
 from datetime import date
 
 class ApplicationService:

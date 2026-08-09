@@ -93,14 +93,14 @@ class Application:
         )
 
     def __str__(self) -> str:
-        return (
-            f"ID: {self.application_id}, "
-            f"Company: {self.company}, "
-            f"Position: {self.position}, "
-            f"Location: {self.location if self.location else 'N/A'}, "
-            f"Work Mode: {self.work_mode.value if self.work_mode else 'N/A'}, "
-            f"Date Applied: {self.date_applied.isoformat()}, "
-            f"Status: {self.status.value}, "
-            f"URL: {self.url if self.url else 'N/A'}, "
+        return "\n".join([
+            f"ID: {self.application_id}",
+            f"Company: {self.company}",
+            f"Position: {self.position}",
+            f"Location: {self.location if self.location else 'N/A'}",
+            f"Work Mode: {self.work_mode.value if self.work_mode else 'N/A'}",
+            f"Date Applied: {self.date_applied.isoformat()}",
+            f"Status: {self.status.value}",
+            f"URL: {self.url if self.url else 'N/A'}",
             f"Notes: {self.notes if self.notes else 'N/A'}"
-        )
+        ])

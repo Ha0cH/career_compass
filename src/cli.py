@@ -1,5 +1,5 @@
-from src.application_service import ApplicationService
-from src.application import ApplicationStatus, WorkMode
+from .application_service import ApplicationService
+from .application import ApplicationStatus, WorkMode
 from datetime import date
 
 class CareerCompassCLI:
@@ -109,6 +109,7 @@ class CareerCompassCLI:
             print("Application not found.")
             return
 
+        print(application)
         company = self._get_optional_string_input("Enter new company name (leave blank to keep current): ")
         position = self._get_optional_string_input("Enter new position (leave blank to keep current): ")
         date_applied = self._get_date_optional("Enter new date applied (YYYY-MM-DD) (leave blank to keep current): ")
